@@ -1,0 +1,91 @@
+<!--<ion-content>-->
+    <!--<ion-refresher class="refresher-custom" (ionRefresh)="doRefresh($event)">-->
+      <!--<ion-refresher-content-->
+        <!--pullingIcon="arrow-dropdown"-->
+        <!--pullingText="Pull to refresh"-->
+        <!--refreshingSpinner="circles"-->
+        <!--refreshingText="Refreshing...">-->
+      <!--</ion-refresher-content>-->
+    <!--</ion-refresher>-->
+    <!--<div class="container-list">-->
+    <!--<ion-list>-->
+      <!--<ion-item class="itemList" *ngFor= "let place of mPlaces " (click)="presentModal(place.id,place.name)">-->
+        <!--<ion-avatar item-left >-->
+          <!--<img [src]="place.image">-->
+        <!--</ion-avatar>-->
+        <!--<h2>{{place.name}}</h2>-->
+        <!--<p>{{place.id}}</p>-->
+      <!--</ion-item>-->
+      <!---->
+    <!--</ion-list>-->
+  <!--</div>-->
+  <!---->
+  <!--<ion-fab right bottom>-->
+    <!--<button ion-fab color="detail" (click)="click()" ><ion-icon name="qr-scanner"></ion-icon></button>-->
+  <!--</ion-fab>-->
+<!--</ion-content>-->
+<ion-content>
+  <img class="logo-home-page" src="./images/logo.png"/>
+  <div #map id="map"></div>
+</ion-content>
+
+
+    <div id="horizontal-scroll"  class="horizontal-scroll-div">
+      <!--<ion-item class="itemList" *ngFor= "let place of mPlaces " (click)="presentModal(place.id,place.name)">-->
+      <!--<ion-avatar item-left >-->
+      <!--<img [src]="place.image">-->
+      <!--</ion-avatar>-->
+      <!--<h2>{{place.name}}</h2>-->
+      <!--<p>{{place.id}}</p>-->
+      <!--</ion-item>-->
+
+      <div class="label">Nelle<br>vicinanze</div>
+      <div class="card" *ngFor= "let place of mPlacesToDisplay " (click)="presentModal(place.id,place.name)">
+        <div class="container-avatar">
+
+          <img [src]="place.image" class="avatar">
+          <div class="ID">
+            <div style="margin: 0 auto;">{{labels[mPlacesToDisplay.indexOf(place)]}}</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!--<div class="card">-->
+        <!--<div class="container-avatar">-->
+          <!--<img class="avatar">-->
+        <!--</div>-->
+        <!--<div class="titolo">-->
+          <!--monumento 2-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="card">-->
+        <!--<div class="container-avatar">-->
+          <!--<img class="avatar">-->
+        <!--</div>-->
+        <!--<div class="titolo">-->
+          <!--monumento con un nome diddio-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="card">-->
+        <!--<div class="container-avatar">-->
+          <!--<img class="avatar">-->
+        <!--</div>-->
+        <!--<div class="titolo">-->
+          <!--monumento con un nome ancora piu lungo del monumento con un nome diddio-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+
+
+
+    <ion-fab bottom="" right="">
+      <button color="detail" ion-fab="" class="fab fab-ios fab-ios-light"><ion-icon class="fab-close-icon" name="close"></ion-icon><span class="button-inner"><ion-icon name="arrow-back" role="img" class="icon icon-ios ion-ios-arrow-dropleft" aria-label="arrow dropleft"></ion-icon></span><div class="button-effect"></div></button>
+      <ion-fab-list side="left" class="">
+        <button (click)="click()"            color="detail" ion-fab="" class="fab fab-ios fab-in-list fab-ios-in-list"><ion-icon class="fab-close-icon icon icon-ios ion-ios-close"  name="close" role="img" aria-label="close"></ion-icon><span class="button-inner"><ion-icon name="qr-scanner" role="img"></ion-icon></span><div class="button-effect"></div></button>
+        <button (click)="centerMap()"        color="detail" ion-fab="" class="fab fab-ios fab-in-list fab-ios-in-list"><ion-icon class="fab-close-icon icon icon-ios ion-ios-close"  name="close" role="img" aria-label="close"></ion-icon><span class="button-inner"><ion-icon name="locate" role="img"></ion-icon></span><div class="button-effect"></div></button>
+        <button (click)="finalizeMapInit()"  color="detail" ion-fab="" class="fab fab-ios fab-in-list fab-ios-in-list"><ion-icon class="fab-close-icon icon icon-ios ion-ios-close"  name="close" role="img" aria-label="close"></ion-icon><span class="button-inner"><ion-icon name="refresh" role="img"></ion-icon></span><div class="button-effect"></div></button>
+        <button (click)="logout()"           color="detail" ion-fab="" class="fab fab-ios fab-in-list fab-ios-in-list"><ion-icon class="fab-close-icon icon icon-ios ion-ios-close"  name="close" role="img" aria-label="close"></ion-icon><span class="button-inner"><ion-icon name="log-out" role="img"></ion-icon></span><div class="button-effect"></div></button>
+        <button id="guida" (click)="apriAreaGuida()"    color="detail" ion-fab="" class="fab fab-ios fab-in-list fab-ios-in-list"><ion-icon class="fab-close-icon icon icon-ios ion-ios-close"  name="close" role="img" aria-label="close"></ion-icon><span class="button-inner"><ion-icon name="walk" role="img"></ion-icon></span><div class="button-effect"></div></button>
+      </ion-fab-list>
+    </ion-fab>

@@ -1,0 +1,60 @@
+page-guide-area {
+  .cover{
+    background-color: map_get($colors,default);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 15vh 4vh 4vh 4vh;
+    text-align: center;
+  }
+  .profile-image {
+    margin: 0 auto;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    overflow: hidden;
+
+  }
+  .card-avatar {
+    object-fit: cover;
+    min-height: 110%;
+    min-width: 110%;
+    transform: translateX(-5%);
+  }
+
+  .profile-name{
+    color: map_get($colors, title);
+    margin-top: 2vh;
+    font-size: 24pt;
+    text-align: center;
+    width: 100%;
+  }
+  .button-container{
+    margin-top: 10vh;
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+  }
+  .button-input-modd{
+    color: map_get($colors, default);
+    background-color: map-get($colors, title);
+    height: 8vh;
+    width: 100%;
+    margin-bottom:5vh;
+  }
+  .profile-button{
+    color: map_get($colors, default);
+    background-color: map-get($colors, detail);
+  }
+
+  .rounded{
+    border-radius: 3vh;
+    border: 0;
+    opacity: 0.9;
+    padding-right: 15px;
+    padding-left: 15px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,32 @@
+<!--
+  Generated template for the Detail page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content >
+
+
+  <ion-fab top right (click)="dismiss()" >
+    <button color="detail" ion-fab><ion-icon name="close"></ion-icon></button>
+  </ion-fab>
+
+
+  <div class="cover-image">
+    <img class="card-image" [src]="photo">
+  </div>
+  <div class="avatar-image">
+    <img class="card-avatar" [src]="photo">
+  </div>
+
+  <div class="tour-lenght-div" color="detail">
+    <div class="tour-lenght-text">{{tourLenght}}m</div>
+  </div>
+  <div class="text-Box">
+    <div class="card-title" >{{nome}}</div>
+    <div class="card-paese" >{{paese}}</div>
+    <div class="card-info">{{detail}}</div>
+    <div class="card-cash-icon"><ion-icon name="logo-usd" color="detail"></ion-icon>{{prezzo}}</div>
+    <button (click)="apriTimer()" class="card-prenota">CERCA UNA GUIDA<ion-icon name="walk"></ion-icon></button>
+  </div>
+</ion-content>

@@ -1,0 +1,57 @@
+page-timer {
+
+  img {
+    content:url(../images/logo.png);
+    position: relative;
+    width: 40vw;
+    height: auto;
+
+  }
+  .inTime{
+    color:  map-get($colors, default);
+    background : map-get($colors, detail);
+    -webkit-transition: width 2s, height 4s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s, height 4s, background 0.5s, color 0.5s;
+  }
+  .timeout {
+    background:map_get($colors, default);
+    color:  map-get($colors, title);
+  }
+  .telephoneNumber{
+    font-size: 30pt;
+    margin-bottom:2vh;
+  }
+}
+
+
+
+
+.main{
+  background-color: map_get($colors,detail);
+}
+
+.container{
+  position:absolute;
+  width: 100vw;
+  top:30vh;
+  bottom:0;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+.logo_div{
+  position:relative;
+  top: 15vh;
+  height: 15vh;
+  text-align: center;
+}
+
+.Timer-number{
+  font-size: 70pt;
+}
+.Timer-sentence{
+  position: absolute;
+  bottom: 3vh;
+  font-size: 12pt;
+}

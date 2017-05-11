@@ -1,0 +1,20 @@
+
+
+
+<ion-content >
+
+<div class="cover">
+  <div class="profile-image"> <img class="card-avatar" [src]="photo"> </div>
+  <div class="profile-name">{{profileName}}</div>
+  <div class="button-container">
+    <button ion-button class="rounded button-input-modd"               > Registra la visita </button>
+    <button ion-button (click)="onEnterPressed()" class="rounded button-input-modd"               > Storico Visite </button>
+    <button ion-button (click)="onEnterPressed()" class="rounded button-input-modd profile-button"> Profilo </button>
+  </div>
+</div>
+
+  <ion-fab bottom right (click)="dismiss()" >
+    <button color="detail" ion-fab> cc </button>
+  </ion-fab>
+
+</ion-content>

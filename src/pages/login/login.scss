@@ -1,0 +1,77 @@
+page-login {
+  background-color : map-get($colors, detail);
+  img {
+    content:url(../images/logo.png);
+    position: relative;
+    width: 65vw;
+    height: auto;
+
+  }
+  .main{
+    //background:url(../images/login_image.jpg) no-repeat center center fixed;
+    background-color: map_get($colors,detail);
+    background-size: cover;
+  }
+
+  .background-filter{
+    background-color: rgba(0,0,0,0.65);
+    width:100vw;
+    height:100vh;
+  }
+
+  .container{
+    position:relative;
+    width: 80vw;
+    top:30vh;
+    margin: 0 auto;
+    text-align: center;
+
+  }
+  .rounded{
+
+    border-radius: 3vh;
+    border: 0;
+    opacity: 0.9;
+    padding-right: 15px;
+    padding-left: 15px;
+    text-align: center;
+  }
+
+  .gui-element{
+    margin-top:4vh;
+  }
+
+
+  .text-input-modd{
+    color: #2c2c2c;
+    background-color: #cccccc;
+    font-size: 3vh;
+    height: 6vh;
+    width: 66vW;
+  }
+  .text-input-modd:hover{
+    background-color: white;
+  }
+
+  .button-input-modd{
+    color: #f2f2f2;
+    background-color: map-get($colors, default);
+    height: 6vh;
+    width: 45vW;
+    margin-top:8vh;
+  }
+
+  .logo_div{
+    position:relative;
+    top: 15vh;
+    height: 15vh;
+    text-align: center;
+  }
+
+
+
+
+
+}
+
+

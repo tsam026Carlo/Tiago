@@ -1,0 +1,32 @@
+<!--<ion-menu [content]="content">-->
+  <!--<ion-header>-->
+    <!--<ion-toolbar color="default">-->
+      <!--<ion-title class ="title-Header" style="padding:0;" >-->
+
+        <!--<ion-item no-lines style="background-color: transparent ">-->
+          <!--<ion-avatar item-left>-->
+            <!--<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAbFBMVEUAAAD////CwsLPz887Ozs0NDQXFxcqKio+Pj4nJye7u7s/Pz8EBASjo6MkJCQuLi4bGxsODg4TExNGRkbV1dWpqamcnJyFhYVoaGjc3NxOTk69vb1UVFQgICBycnLs7OxhYWF6enqNjY3v7++c5czxAAACh0lEQVR4nO3dXVPiMBSA4YDnNI0tbZrKqqgL6v//j8b9uNkdrTOyydn6vhdMKQzkmXQKhIs6R0RERERERERERERERERERERE56ivPYB/XQbe7Lcl2t9XIsarTam2FXh5BssB6xDdY0HgZlPjQL0tKtyWP7GlosDNprQvn0cLC7W48Kmw8Htx4b6w8Lq48LKw8NvqhTuECBEiRIgQYYVP/PV/a1v/N+/Sv56kuLAvLCwOLL+KUb7HosJTBWHRSayzYJrKES8qAH+u6l8ursjfHRcGf7xbfI3LUxXgR/+ZuVgQ3p3xveq0JKyyXn/WECK0H0KE9kOI0H4IEdoPIUL7IURoP4QI7YcQof0QIrQfQoT2Q4jQfggR2g8hQvshRGg/hAjthxCh/RAitB9ChPZDiNB+CBHaDyFC+yFEaD+ECO2HEKH9ECK0H0KE9kOI0H4IEdoPIUL7IURoP4QI7YcQof0QIrQfQoT2Q4jQfggR2g8hQvutX7hdEO5rD/DTXS8Ib2oP8PO9fymd29rDO0Pj8zvAYzJ9kZyPtnvL9/xUe2hn62Z/9edMHi92p9rDOn/Nr1LtgRAREREREREREX3N1rBm/CXzkxONOgfpHlqdRINX72anMUytTJ0bhxTj7NogOnWa98VRg4uSH5PoRWoDFtPk5pCcuGacutB3g8oYU+u11UadiOoYh+HgDqpd04X8nLHz0bVualvvxfnagMWysJv6LIzjJKmfB42pE5013acs1HDwzTBIK/qgXqdXYWxm17nUtmFs3TzVFiw1iFcJeSrSQ5+PwLwVJPh8616PyLxf8kS67P5xlEozOD/KECaRPm8Oov/d+an/fdv/tXMN9W/eISKiAr0A+cAuMv6yRnYAAAAASUVORK5CYII=">-->
+          <!--</ion-avatar>-->
+          <!--<h1 class="Title " >Tiago</h1>-->
+        <!--</ion-item>-->
+
+      <!--</ion-title>-->
+    <!--</ion-toolbar>-->
+  <!--</ion-header>-->
+  <!--<ion-content>-->
+    <!--<div class="container-list">-->
+      <!--<ion-list>-->
+        <!--<button color="light" ion-item menuClose (click)="apriHome()" >-->
+          <!--<ion-icon name="home" style="margin: 10px;"></ion-icon>Home-->
+        <!--</button>-->
+        <!--<button color="light" ion-item menuClose>-->
+          <!--<ion-icon name="list" style="margin: 10px;"></ion-icon>Storico-->
+        <!--</button>-->
+        <!--<button color="light" id="area_riservata" [navPush]="GuideAreaPage"  (click)="apriAreaGuida()" ion-item menuClose >-->
+          <!--<ion-icon name="list" style="margin: 10px;" ></ion-icon>Area Riservata-->
+        <!--</button>-->
+      <!--</ion-list>-->
+    <!--</div>-->
+  <!--</ion-content>-->
+<!--</ion-menu>-->
+<ion-nav  #content  [root]="rootPage"></ion-nav>
