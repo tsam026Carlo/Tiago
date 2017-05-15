@@ -9,8 +9,8 @@ import {AcceptTour} from "../accept-tour/accept-tour";
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
-
-declare var FCMPlugin;
+//
+// declare var FCMPlugin;
 @Component({
   selector: 'page-guide-area',
   templateUrl: 'guide-area.html'
@@ -29,41 +29,47 @@ export class GuideAreaPage {
     this.profileName = "";
     this.platform.ready().then(() => {
         this.setupNotifications();
-        setTimeout(this.openAccept(),5000);
     });
   }
 
 
 
 
-
+  event = new Event('build');
 
   setupNotifications() {
-    try {
-      let fcmPlugin = FCMPlugin;
-      fcmPlugin.getToken(
-        function (token) {
-          alert(token);
-          window.localStorage.setItem("token",token);
-
-        },
-        function (err) {
-          alert("error retrieving token: " + err);
-
-        });
-      fcmPlugin.onNotification(function (notification) {
-        console.log(notification);
-        window.localStorage.setItem("notification",JSON.stringify(notification));
-        document.location.href = "accept-tour.html";
-      }, function (error) {
-        //alert(error);
-        console.log("error:"+error);
-      });
+    // try {
+    //
+    //   window.addEventListener('build', function (e) {alert('ohsi!')}, false);
+    // });
+      // let fcmPlugin = FCMPlugin;
+      // fcmPlugin.getToken(
+      //   function (token) {
+      //     alert(token);
+      //     window.localStorage.setItem("token",token);
+      //
+      //   },
+      //   function (err) {
+      //     alert("error retrieving token: " + err);
+      //
+      //   });
+      // fcmPlugin.onNotification(function (notification) {
+      //   console.log(notification);
+      //   window.localStorage.setItem("notification",JSON.stringify(notification));
+      //   event = new Event('build');
+      //   window.dispatchEvent(event);
+      // }, function (succes) {
+      //   //alert(error);
+      //   console.log("success: "+succes);
+      // }, function (error) {
+      //   //alert(error);
+      //   console.log("error:"+error);
+      // });
       setTimeout(this.restCall(),2000);
-    }
-    catch (exception) {
-      console.log(exception);
-    }
+    // }
+    // catch (exception) {
+    //   console.log(exception);
+    // }
   }
 
 
@@ -86,7 +92,7 @@ export class GuideAreaPage {
       .subscribe(data => {
         var dataAsJson = data.json();
         this.photo = 'http://'+this.ipv4+':80/tiago/photo/'+ dataAsJson.photo;
-        this.profileName = dataAsJson.name;
+        //this.profileName = dataAsJson.name;
         this.profileId = dataAsJson.id;
         this.number = dataAsJson.number;
       }, error => {
@@ -102,12 +108,12 @@ export class GuideAreaPage {
   }
 
   private openAccept() {
-    if(window.localStorage.getItem("notification")!=null){
-      this.navCtrl.push(AcceptTour);
-    }
-    else{
-      setTimeout(this.openAccept(),5000);
-    }
+    // if(window.localStorage.getItem("notification")!=null){
+    //   this.navCtrl.push(AcceptTour);
+    // }
+    // else{
+    //   setTimeout(this.openAccept(),5000);
+    // }
 
   }
 }
