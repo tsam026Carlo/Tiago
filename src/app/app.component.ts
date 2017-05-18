@@ -162,7 +162,7 @@ export class MyApp {
     console.log({id_tour: tour_id, id_guida: guida_id});
     this.http.post(link, data, options)
       .subscribe(data => {
-        this.nav.setRoot(PendingTour);
+        this.nav.setRoot(PendingTour,{id_tour:tour_id , place_name:place_name , place_location:place_location , id_guida: guida_id });
       }, error => {
         alert("time out from server!" + error.code);
         console.log(error);
