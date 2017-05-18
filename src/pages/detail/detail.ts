@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, NavParams, ViewController, MenuController} from 'ionic-angular';
+import {NavController, NavParams, ViewController, MenuController, ModalController} from 'ionic-angular';
 import {Headers, RequestOptions, Http} from "@angular/http";
 import {Timer} from "../timer/timer";
 
@@ -24,7 +24,7 @@ export class DetailPage {
   private paese: any;
   private prezzo: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public http: Http, public modalCtrl: ModalController ) {
     this.id = navParams.get("id");
     var link = 'http://'+this.ipv4+':31206/api/getPlaceDetail';
     let headers = new Headers({
@@ -53,12 +53,12 @@ export class DetailPage {
       });
   }
 
-  dismiss(data) {
-    this.viewCtrl.dismiss(data);
+  dismiss() {
+    this.viewCtrl.dismiss();
   }
 
   apriTimer(){
-    this.navCtrl.setRoot(Timer, {"id": this.id});
+    this.navCtrl.setRoot(Timer, {"id": this.id})
   }
 
 }

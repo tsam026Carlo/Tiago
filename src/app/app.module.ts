@@ -13,6 +13,7 @@ import {NativeStorage} from "@ionic-native/native-storage";
 import {BarcodeScanner} from "@ionic-native/barcode-scanner";
 import {Timer} from "../pages/timer/timer";
 import {AcceptTour} from "../pages/accept-tour/accept-tour";
+import {PendingTour} from "../pages/PendingTour/pending-tour";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {AcceptTour} from "../pages/accept-tour/accept-tour";
     LoginPage,
     Timer,
     GuideAreaPage,
-    AcceptTour
+    AcceptTour,
+    PendingTour
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -37,7 +39,8 @@ import {AcceptTour} from "../pages/accept-tour/accept-tour";
     LoginPage,
     Timer,
     GuideAreaPage,
-    AcceptTour
+    AcceptTour,
+    PendingTour
   ],
   providers: [Geolocation,
               Push,

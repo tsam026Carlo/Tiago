@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Platform} from 'ionic-angular';
+import {NavController, NavParams, Platform, ViewController} from 'ionic-angular';
 import {RequestOptions, Headers, Http} from "@angular/http";
 import {NativeStorage} from "@ionic-native/native-storage";
 import {HomePage} from "../home/home";
-declare var FCMPlugin;
 /**
  * Generated class for the Timer page.
  *
@@ -25,15 +24,15 @@ export class Timer {
   private timer:ITimer;
   public id: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public nativeStorage: NativeStorage, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public nativeStorage: NativeStorage, public http: Http, public viewCtrl: ViewController) {
     this.staticSentence = "Stiamo cercando la tua guida";
     this.platform.ready().then(() => {
 
       this.id = this.navParams.get("id");
       console.log(this.id+"--- ccc");
 
-      var data = window.localStorage.getItem("number");
-      this.setupNotifications(data,this.id);
+      var number = window.localStorage.getItem("number");
+      this.restCall(number, this.id);
 
       this.sentence = ["Stiamo notificando tutte le guide abilitate per questo punto" , "La prima guida che accettera\' l\' incarico ricevera\' i tuoi dati e ti contattera\' immediatamente", "A termine della visita potrai dare un voto da uno a cinque al servizio ricevuto", "Aiutaci a migliorare e condividi la tua esperienza sui social con #tiago"];
       this.actualsentenceIndex = 0;
@@ -68,6 +67,11 @@ export class Timer {
       if (!this.timer.runTimer) { return; }
       this.timer.secondsRemaining--;
       this.timer.displayTime = Timer.getSecondsAsDigitalClock(this.timer.secondsRemaining);
+      if(window.localStorage.getItem("guide-found")=="guide-found"){
+        window.localStorage.setItem("guide-found",null);
+        this.viewCtrl.dismiss();
+        return 1;
+      }
       if (this.timer.secondsRemaining % 10 == 0) {
         this.actualsentenceIndex = this.actualsentenceIndex + 1;
         this.actualsentence = this.sentence[(this.actualsentenceIndex)%3];
@@ -98,38 +102,8 @@ export class Timer {
     this.staticSentence = "Purtroppo al momento nessuna guida e\' disponibile ti consigliamo di contattare l'ufficio IAT di zona";
     document.getElementById("timer").classList.add('telephoneNumber');
     this.timer.displayTime = "+39 3494427744";
-    FCMPlugin.unsubscribeFromTopic('guideResearch');
 
 
-  }
-
-
-  setupNotifications(number, id) {
-    try {
-      let fcmPlugin = FCMPlugin;
-      fcmPlugin.getToken(
-        function (token) {
-          alert(token);
-          window.localStorage.setItem("token",token);
-
-        },
-        function (err) {
-          alert("error retrieving token: " + err);
-
-        });
-      fcmPlugin.onNotification(function (notification) {
-        console.log(notification);
-        alert("got notification");
-        alert(JSON.stringify(notification));
-      }, function (error) {
-        //alert(error);
-        console.log("error:"+error);
-      });
-      setTimeout(this.restCall(number, id),2000);
-    }
-    catch (exception) {
-      console.log(exception);
-    }
   }
 
 
@@ -148,7 +122,6 @@ export class Timer {
       let data = JSON.stringify({number: number, token: token, place_id: id});
       this.http.post(link, data, options)
         .subscribe(data => {
-          alert("vabbene capo"+data);
         }, error => {
           alert("time out from server!" + error.code);
           console.log(error);
